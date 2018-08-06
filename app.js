@@ -42,7 +42,7 @@ require('./config/passport')(passport);
 
 
 //create the server
-const port = 3000;
+const port = process.env.PORT || 8080;
 app.listen(port, () => {console.log('Richards Server started on port ' + port);  });
 
 app.use('/users', users);
