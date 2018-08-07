@@ -11,7 +11,7 @@ const config = require('./config/database');
 const app = express();
 
 const users = require('./routes/users');
-
+const jobs = require('./routes/jobs');
 
 //connect to database
 mongoose.connect(config.database, { useNewUrlParser: true });
@@ -40,12 +40,13 @@ app.use(passport.session());
 require('./config/passport')(passport);
 
 
-
 //create the server
 const port = process.env.PORT || 8080;
 app.listen(port, () => {console.log('Richards Server started on port ' + port);  });
 
+//push traffic to the root of users, jobs etc 
 app.use('/users', users);
+app.use('/jobs', jobs);
 
 //create index route
 app.get('/', (req, res) => {res.send('Yeah Baby!');
