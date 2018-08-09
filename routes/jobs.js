@@ -8,26 +8,25 @@ const Job = require('../models/jobs')
 router.post('/newjob', (req, res) => {
     
      newJob = new Job({
-         
+
         account: req.body.account,
         ref: req.body.ref,
-        raised: Date().now,
-        status: req.body.initiated,
-        repairable: {make: req.body.make,
-                     model: req.body.model
-                     }
-    });
-    
+        model: req.body.model,
+        make: req.body.make
+
+     });      
+        
+
     newJob.save((err, doc) => {
 
         if(!err){res.send(doc);} 
         else { console.log('Error in adding new job ....' + JSON.stringify(err, undefined, 2));
 
-        }
+    }
 
-    });
 
-    
+
+});
 
 });
 

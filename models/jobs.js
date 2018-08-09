@@ -5,12 +5,12 @@ const config = require('../config/database');
 
 const JobSchema = mongoose.Schema({
 
-    Account:    String,
+    account:    String,
     ref:        String,
-    raised:     String,
+    raised:     {type: Date, default: Date.now},
     status:     String,
     repairable: { 
-                 make: String ,
+                 make: {type: String , default: "Rolex"},
                  model: String,
                  calibre: String,
                  notes: String,
