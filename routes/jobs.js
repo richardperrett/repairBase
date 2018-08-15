@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const config = require('../config/database');
 
-const Job = require('../models/jobs')
+const Job = require('../models/jobs');
 
 //Add New Job
 router.post('/newjob', (req, res) => {
@@ -27,6 +27,19 @@ router.post('/newjob', (req, res) => {
 
 
 });
+
+
+
+});
+
+router.get( '/', (req, res) => {
+
+    Job.find((err, docs) => {
+
+        if(!err) {res.send(docs); }
+        else { console.log('Error retrieving Jobs info ...' + JSON.stringify(err, undefined, 2)); }
+    });
+
 
 });
 

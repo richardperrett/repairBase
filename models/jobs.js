@@ -5,19 +5,21 @@ const config = require('../config/database');
 
 const JobSchema = mongoose.Schema({
 
-    account:    String,
-    ref:        String,
+    //account:    String,
+    //ref:        String,
+    //status:     String,
+
     raised:     {type: Date, default: Date.now},
-    status:     String,
+   
     repairable: { 
                  make: {type: String , default: "Rolex"},
                  model: String,
-                 calibre: String,
-                 notes: String,
+                
                 },
 
-    Images:     [ {ImageCaption: String, ImageURL: String}],           
-
+    //Images:     [ {ImageCaption: String, ImageURL: String}],           
+    
+    /*
     customer:   { firstName: String,
                 Surname: String,
                 EmailAddress: String,
@@ -40,7 +42,8 @@ const JobSchema = mongoose.Schema({
                     EventType: String,
                     Detail: String,
                     User_Id: String,  
-                    }]             
+                    }]  
+                    */           
                
 });
 
